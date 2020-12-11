@@ -66,7 +66,7 @@ public class BinarySearch {
     public void mostrarArray(int[] array) {
         System.out.println("\n**CONTENIDO DEL ARREGLO**");
         for (int e = 0; e < array.length; e++) {
-            System.out.println("arreglo[" + e + "] = " + array[e] + " ");
+            System.out.println("arreglo[" + e + "] = " + array[e]);
         }
     }
 }
