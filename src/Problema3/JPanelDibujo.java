@@ -37,7 +37,7 @@ public class JPanelDibujo extends JPanel {
             //RECTANGULOS
             Rectangulo rtg = new Rectangulo(arreglo[4], arreglo[5], arreglo[6], arreglo[7]);
             g.setColor(Color.black);
-            g.drawRect(rtg.getPosEjeX(), rtg.getPosEjeY(), rtg.getAncho(), rtg.getAlto());
+            g.drawRect(rtg.getPosEjeX(), rtg.getPosEjeY(), rtg.getAncho(), rtg.getAlto()); //dibuja un rectangulo sin fondo
         }
 
         g.clearRect(800, 160, 50, 70);//note lo que pasa si comenta esta línea

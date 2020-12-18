@@ -28,7 +28,7 @@ public class Tester {
         // Este metodo requiere que el arreglo se encuentre ordenado
         methods.ordenarArray(array);
         methods.mostrarArray(array);
-
+      
         while (true) {
             System.out.print("\nDigite el elemento buscado: ");
             int objective = input.nextInt();
