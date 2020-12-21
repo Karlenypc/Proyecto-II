@@ -10,8 +10,7 @@ public class SistemaNotasControlador {
     int modo;
 
     public void iniciar() {
-        SistemaNotasReporte r = new SistemaNotasReporte();
-        SistemaNotas s = new SistemaNotas();
+        SistemaNotasReporte s = new SistemaNotasReporte();
         PadreFamiliar p = new PadreFamiliar();
         PadreFamiliar m = new PadreFamiliar();
         Alumno a = new Alumno();
@@ -35,9 +34,16 @@ public class SistemaNotasControlador {
                         vst.exceptionEliminar();
                         break;
                     case 4:
-                        vst.getReporteExamenes();
+                        int seleccion = vst.getOpcionRegistro();
+                        if (seleccion == 1)
+                            vst.getReporteExamenes();
+                        if (seleccion == 2)
+                            vst.getReporteAlumnos();
+                        if (seleccion == 3)
+                            vst.getReporteAlumnosNotaInferior();
+                        if (seleccion == 4) 
+                            vst.getReporteExamenesOrdenadosPor();
                         break;
-                    default:
                 }
             } else {
                 menu = vst.getOpcionMenuJ();
@@ -53,9 +59,10 @@ public class SistemaNotasControlador {
                         vst.exceptionEliminarJ();
                         break;
                     case 4:
-
+                        
+                        break;
                 }
             }
-        } while (menu != 5);
+        } while (menu < 5);
     }
 }

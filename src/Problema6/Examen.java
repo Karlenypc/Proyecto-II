@@ -55,7 +55,7 @@ public class Examen {
 
     @Override
     public String toString() {
-        return "Examen {" + " Nota: " + nota + " Puntos Totales: " + puntosTotal + " Puntos Obtenidos: " + puntosObtenidos + '}';
+        return "Examen {" + "Nota: " + nota + " Puntos Totales: " + puntosTotal + " Puntos Obtenidos: " + puntosObtenidos + '}';
     }
     
 }

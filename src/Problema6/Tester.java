@@ -12,6 +12,8 @@ package Problema6;
 public class Tester {
     public static void main(String[] args) {
         SistemaNotasControlador c = new SistemaNotasControlador();
-        c.iniciar();
+        Ventana prueba = new Ventana();
+        prueba.setVisible(true);
+        //c.iniciar();
     }
 }

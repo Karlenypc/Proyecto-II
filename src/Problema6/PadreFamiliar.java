@@ -39,4 +39,8 @@ public class PadreFamiliar {
         this.apellido = apellido;
     }
 
+    @Override
+    public String toString() {
+        return "**Encargado legal** " + "\nNombre: " + nombre + "\nApellido: " + apellido + '}';
+    }
 }

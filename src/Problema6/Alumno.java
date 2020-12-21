@@ -80,6 +80,6 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return  "Nombre: " + nombre + "\n Apellido: " + apellido + "\n Carne: " + carnet + "\n";
+        return  "Nombre: " + nombre + "\nApellido: " + apellido + "\nCarne: " + carnet + "\n";
     }
 }

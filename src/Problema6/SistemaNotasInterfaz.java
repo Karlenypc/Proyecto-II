@@ -8,14 +8,14 @@ import javax.swing.JOptionPane;
  * @author Karlenypc
  */
 public class SistemaNotasInterfaz {
-    SistemaNotasReporte s = new SistemaNotasReporte();
-    SistemaNotas sistema = new SistemaNotas();
+
+    SistemaNotasReporte sistema = new SistemaNotasReporte();
     PadreFamiliar p;
     PadreFamiliar m;
     Alumno a;
     Examen e;
 
-    public SistemaNotasInterfaz(SistemaNotas s, PadreFamiliar p, PadreFamiliar m, Alumno a, Examen e) {
+    public SistemaNotasInterfaz(SistemaNotasReporte s, PadreFamiliar p, PadreFamiliar m, Alumno a, Examen e) {
         this.sistema = s;
         this.p = p;
         this.m = m;
@@ -41,13 +41,23 @@ public class SistemaNotasInterfaz {
         System.out.println("1) Agregar nota. ");
         System.out.println("2) Agregar información familiar. ");
         System.out.println("3) Eliminar nota. ");
-        System.out.println("4) Mostrar notas registradas. ");
+        System.out.println("4) Mostrar datos registrados. ");
         System.out.println("5) Salir. ");
         menu = input.nextInt();
         if (menu < 1 || menu > 5) {
             System.out.println("Seleccion no valida.");
         }
         return menu;
+    }
+
+    public int getOpcionRegistro() {
+        int opcion = 0;
+        System.out.println("1. Generar reporte de examenes.");
+        System.out.println("2. Generar reporte de alumnos");
+        System.out.println("3. Generar reporte de alumnos con notas inferior a lo establecido.");
+        System.out.println("4. Generar reporte de examenes ordenados por nota mayor.");
+        opcion = input.nextInt();
+        return opcion;
     }
 
     public void leaInformacionAlumno() {
@@ -95,19 +105,47 @@ public class SistemaNotasInterfaz {
             System.out.println("La nota anterior ha sido eliminada con exito!");
         }
     }
-    
+
     public void getReporteExamenes() {
-        System.out.println(s.generarReporteTodosExamenes());
+        if (sistema.contador != 0) {
+            System.out.println(sistema.generarReporteTodosExamenes());
+        } else {
+            System.out.println("No existen registros en el sistema.\n");
+        }
+    }
+
+    public void getReporteAlumnos() {
+        if (sistema.contador != 0) {
+            System.out.println(sistema.generarReporteTodosAlumnos());
+        } else {
+            System.out.println("No existen registros en el sistema.\n");
+        }
+    }
+
+    public void getReporteAlumnosNotaInferior() {
+        if (sistema.contador != 0) {
+        System.out.println(sistema.generarReporteTodosAlumnosNotaInferiorA(e.getNota()));
+        } else {
+            System.out.println("No existen registros en el sistema.\n");
+        }
+    }
+
+    public void getReporteExamenesOrdenadosPor() {
+        if (sistema.contador != 0) {
+        System.out.println(sistema.generarReporteExamenesOrdenadosPor(e.getNota()));
+        } else {
+            System.out.println("No existen registros en el sistema.\n");
+        }
     }
 
 //Modo grafico 
     public int getOpcionMenuJ() {
         int menu = 0;
-        JOptionPane.showMessageDialog(null, "Bienvenido por favor seleccione la opción que desea realizar: ");
-        menu = Integer.parseInt(JOptionPane.showInputDialog("1) Agregar nota.\n 2) Agregar información familiar.\n "
-                + "3) Eliminar nota.\n 4) Mostrar notas registradas.\n 5) Salir. "));
+        menu = Integer.parseInt(JOptionPane.showInputDialog("Bienvenido por favor seleccione la opción que desea realizar:\n "
+                + "1) Agregar nota.\n 2) Agregar información familiar.\n "
+                + "3) Eliminar nota.\n 4) Mostrar datos registrados.\n 5) Salir. "));
         if (menu < 1 || menu > 5) {
-
+            JOptionPane.showMessageDialog(null, "Seleccion no valida.");
         }
         return menu;
     }
@@ -138,7 +176,7 @@ public class SistemaNotasInterfaz {
         m.setApellido(JOptionPane.showInputDialog("Digite el apellido: "));
         a.setMadre(m);
     }
-    
+
     public void exceptionEliminarJ() {
         if (sistema.contador == 0) {
             JOptionPane.showMessageDialog(null, "No existen notas registradas.");
@@ -147,4 +185,6 @@ public class SistemaNotasInterfaz {
             JOptionPane.showMessageDialog(null, "La nota anterior ha sido eliminada con exito!");
         }
     }
+    
+    
 }
